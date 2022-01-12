@@ -12,7 +12,7 @@ var fs = require('fs'),
 	es = require("event-stream"),
 	os = require('os'),
 	chokidar = require('chokidar');
-require('colors');
+var chalk = require('chalk');
 
 var INJECTED_CODE = fs.readFileSync(path.join(__dirname, "injected.html"), "utf8");
 
@@ -66,7 +66,7 @@ function staticServer(root) {
 					}
 				}
 				if (injectTag === null && DeadServer.logLevel >= 3) {
-					console.warn("Failed to inject refresh script!".yellow,
+					console.warn(chalk.yellow("Failed to inject refresh script!"),
 						"Couldn't find any of the tags ", injectCandidates, "from", filepath);
 				}
 			}
@@ -156,7 +156,7 @@ DeadServer.start = function (options) {
 		try {
 			require.resolve(httpsModule);
 		} catch (e) {
-			console.error(("HTTPS module \"" + httpsModule + "\" you've provided was not found.").red);
+			console.error(chalk.red("HTTPS module \"" + httpsModule + "\" you've provided was not found."));
 			console.error("Did you do", "\"npm install " + httpsModule + "\"?");
 			return;
 		}
@@ -244,12 +244,12 @@ DeadServer.start = function (options) {
 	server.addListener('error', function (e) {
 		if (e.code === 'EADDRINUSE') {
 			var serveURL = protocol + '://' + host + ':' + port;
-			console.log('%s is already in use. Trying another port.'.yellow, serveURL);
+			console.log(chalk.yellow('%s is already in use. Trying another port.'), serveURL);
 			setTimeout(function () {
 				server.listen(0, host);
 			}, 1000);
 		} else {
-			console.error(e.toString().red);
+			console.error(chalk.red(e.toString()));
 			DeadServer.shutdown();
 		}
 	});
@@ -290,12 +290,12 @@ DeadServer.start = function (options) {
 		if (DeadServer.logLevel >= 1) {
 			if (serveURL === openURL)
 				if (serveURLs.length === 1) {
-					console.log(("Serving \"%s\" at %s").green, root, serveURLs[0]);
+					console.log(chalk.green("Serving \"%s\" at %s"), root, serveURLs[0]);
 				} else {
-					console.log(("Serving \"%s\" at\n\t%s").green, root, serveURLs.join("\n\t"));
+					console.log(chalk.green("Serving \"%s\" at\n\t%s"), root, serveURLs.join("\n\t"));
 				}
 			else
-				console.log(("Serving \"%s\" at %s (%s)").green, root, openURL, serveURL);
+				console.log(chalk.green("Serving \"%s\" at %s (%s)"), root, openURL, serveURL);
 		}
 
 		// Launch browser
@@ -361,8 +361,8 @@ DeadServer.start = function (options) {
 		var cssChange = path.extname(changePath) === ".css" && !noCssInject;
 		if (DeadServer.logLevel >= 1) {
 			if (cssChange)
-				console.log("CSS change detected".magenta, changePath);
-			else console.log("Change detected".cyan, changePath);
+				console.log(chalk.magenta("CSS change detected"), changePath);
+			else console.log(chalk.cyan("Change detected"), changePath);
 		}
 		clients.forEach(function (ws) {
 			if (ws)
@@ -377,10 +377,10 @@ DeadServer.start = function (options) {
 		.on("unlinkDir", handleChange)
 		.on("ready", function () {
 			if (DeadServer.logLevel >= 1)
-				console.log("Ready for changes".cyan);
+				console.log(chalk.cyan("Ready for changes"));
 		})
 		.on("error", function (err) {
-			console.log("ERROR:".red, err);
+			console.log(chalk.red("ERROR:"), err);
 		});
 
 	return server;

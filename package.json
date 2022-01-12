@@ -12,8 +12,8 @@
   ],
   "author": "Rimantas Belovas",
   "dependencies": {
+    "chalk": "^4.1.2",
     "chokidar": "^3.5.2",
-    "colors": "1.4.0",
     "connect": "^3.6.6",
     "cors": "^2.8.5",
     "event-stream": "3.3.4",
