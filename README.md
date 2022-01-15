@@ -194,6 +194,12 @@ For more details, please refer to [live-server](https://www.npmjs.com/package/li
     -   `opn` package changed to `open`
     -   `cors`, `object-assign`, `send` and `proxy-middleware` versions changed from "latest" to respective latest stable versions
 
--   v1.0.3
+-   v1.0.5
+
+    -   removed `colors` dependency and use `chalk` instead
+
+-   v1.0.6
 
     -   README update
+    -   Support relative path specified for middleware
+    -   Fixed issue regarding Folder Containing Exclamation Sign (!)

@@ -358,7 +358,8 @@ DeadServer.start = function (options) {
 	// Setup file watcher
 	DeadServer.watcher = chokidar.watch(watchPaths, {
 		ignored: ignored,
-		ignoreInitial: true
+		ignoreInitial: true,
+		disableGlobbing: true
 	});
 	function handleChange(changePath) {
 		var cssChange = path.extname(changePath) === ".css" && !noCssInject;
