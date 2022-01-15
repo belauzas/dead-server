@@ -67,6 +67,12 @@ Alternatively you can add the path to serve as a command line parameter.
 $ dead-server ./index.html
 ```
 
+General template:
+
+```shell
+$ dead-server [PATH] [OPTIONS...]
+```
+
 ## Parameters
 
 -   `--port=NUMBER` - select port to use, default: PORT env var or 8080
@@ -158,6 +164,7 @@ dead-server \
 ## Troubleshooting
 
 -   No reload on changes
+    -   Ensure that your index file has `html`, `head` and `body` tag
     -   Open your browser's console: there should be a message at the top stating that live reload is enabled. Note that you will need a browser that supports WebSockets. If there are errors, deal with them. If it's still not working, [file an issue](https://github.com/belauzas/dead-server/issues).
 -   Error: watch <PATH> ENOSPC
     -   See [this suggested solution](http://stackoverflow.com/questions/22475849/node-js-error-enospc/32600959#32600959).
@@ -172,34 +179,34 @@ For more details, please refer to [live-server](https://www.npmjs.com/package/li
 
 ## Version history
 
--   v1.0.0
+-   v1.0.6
 
-    -   Fork and `colors` package fix (revert to v1.4.0)
-    -   rename to `dead-server`
+    -   README update
+    -   Support relative path specified for middleware
+    -   Fixed issue regarding Folder Containing Exclamation Sign (!)
 
--   v1.0.1
+-   v1.0.5
 
-    -   even more renaming
-
--   v1.0.2
-
-    -   mistype fix
-
--   v1.0.3
-
-    -   minor updates
+    -   removed `colors` dependency and use `chalk` instead
 
 -   v1.0.4
 
     -   `opn` package changed to `open`
     -   `cors`, `object-assign`, `send` and `proxy-middleware` versions changed from "latest" to respective latest stable versions
 
--   v1.0.5
+-   v1.0.3
 
-    -   removed `colors` dependency and use `chalk` instead
+    -   minor updates
 
--   v1.0.6
+-   v1.0.2
 
-    -   README update
-    -   Support relative path specified for middleware
-    -   Fixed issue regarding Folder Containing Exclamation Sign (!)
+    -   mistype fix
+
+-   v1.0.1
+
+    -   even more renaming
+
+-   v1.0.0
+
+    -   Fork and `colors` package fix (revert to v1.4.0)
+    -   rename to `dead-server`
