@@ -11,8 +11,8 @@ var fs = require('fs'),
 	open = require('open'),
 	es = require("event-stream"),
 	os = require('os'),
-	chokidar = require('chokidar');
-var chalk = require('chalk');
+	chokidar = require('chokidar'),
+	chalk = require('chalk');
 
 var INJECTED_CODE = fs.readFileSync(path.join(__dirname, "injected.html"), "utf8");
 
