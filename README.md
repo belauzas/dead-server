@@ -179,6 +179,10 @@ For more details, please refer to [live-server](https://www.npmjs.com/package/li
 
 ## Version history
 
+-   v1.0.8
+
+    -   Additional dependencies upgrade
+
 -   v1.0.7
 
     -   Upgraded dependencies; thanks to @jotapesan
