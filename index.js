@@ -197,7 +197,7 @@ DeadServer.start = function (options) {
 
 	// Use http-auth if configured
 	if (htpasswd !== null) {
-		var auth = require('http-auth');		
+		var auth = require('http-auth');
 		var basic = auth.basic({
 			realm: "Please authorize",
 			file: htpasswd
