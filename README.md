@@ -3,7 +3,7 @@
 
 # Dead Server
 
-This is a quick fix (updated version) for an original ["Live Server"](https://www.npmjs.com/package/live-server) package. Original version doesn't seem be maintained, and while there was a major braiking change ir the dependencies, I took to quick-fix it.
+This is a quick-fix (updated version) for an original ["Live Server"](https://www.npmjs.com/package/live-server) package. Original version doesn't seem to be maintained, and while there was a major breaking change in the dependencies, I took to quick-fixing it.
 
 ## Intro
 
@@ -16,7 +16,7 @@ There are two reasons for using this:
 
 ## Install
 
-I **do not** recommend to install this package globally, because this might be an obstacle while working in a team. It's better to have it in your `package.json` file, so all team could use it without a hustle.
+I **do not** recommend to install this package globally, because this might be an obstacle while working in a team. It's better to have it in your `package.json` file, so all teams could use it without a hustle.
 
 **Npm way**
 
